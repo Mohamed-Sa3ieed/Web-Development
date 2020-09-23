@@ -33,6 +33,7 @@
  * 
 */
 
+
 // build the nav with all the needed scrolling "animation has been made by "
 document.addEventListener('DOMContentLoaded', function () {
     const unorderedList = document.getElementById('navbar__list');
@@ -44,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const markTitle = section.getAttribute('data-nav');
         const markref = section.id;
         bookmark.id = `${markref}-mark`;
-        bookmark.innerHTML = `<a href="#${markref}" class="menu__link">${markTitle}</a>`;
+        bookmark.innerHTML = `<a id='${markref}-link' class="menu__link">${markTitle}</a>`;
+        bookmark.addEventListener('click', scrollToSection);
         listFragment.appendChild(bookmark);
     });
     unorderedList.appendChild(listFragment);
@@ -92,7 +94,29 @@ sections.forEach(function (section) {
 
 
 // Scroll to anchor ID using scrollTO event
-/* made by adding internal links into the a ref inside the list item of the nav-bar*/
+function scrollToSection(evt) {
+    const targetId = evt.target.id.replace('-mark', '').replace('-link', '');
+    /* the below code is a trial to use scrollIntoView way.
+    But it gives transitions with only single section step through trials 
+    so when clicking on section 4 while i am on section 1 it gives one section transition to make the active section is section 2
+    so we used scrollIntoView instead*/
+    /*const section = document.getElementById(targetId);
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });*/
+    
+    
+
+    /* sometimes the smooth transition is not made.
+    Maybe due to the incrementing effect of the listeners make the event to be fired lately so the function ignores the smooth transition */ 
+    const top = document.getElementById(targetId).offsetTop; //Getting the offset from the beginning of the page
+    location.hash = '#' + targetId;
+    window.scrollTo({
+        top: top,
+        behavior: 'smooth'
+    });                     //scroll the window with specific offset from the beginning*/
+}
 
 
 /**
@@ -148,3 +172,4 @@ topButton.addEventListener('click', function () {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 });
+

@@ -231,10 +231,6 @@ section.your-active-class .landing__container::after {
 	}
 }
 
-/* Add smooth scrolling effect to the page when section clicked from nav-bar */
-html {
-    scroll-behavior: smooth;
-}
 
 /* add scrolling to top button style */
 #topBtn {
