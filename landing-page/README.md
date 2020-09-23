@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-* [Repository Content](#repository_content)
+* [Repository Content](#repository content)
 * [Description](#description)
 * [Prerequisite](#prerequisite)
 * [Installation](#installation)
-* [Runtime Environment](#runtime_environment)
+* [Runtime Environment](#runtime environment)
 
 ## Repository Content
 
