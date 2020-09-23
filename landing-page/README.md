@@ -11,10 +11,10 @@
 ## Repository Content
 
 - css
--- styles.css	contains all the project styling 
+	- styles.css	contains all the project styling 
 - index.html	containn the main view of the web page
 - js
--- app.js	contains various listeners and Intersection Observers to achieve the project required dynamics
+	- app.js	contains various listeners and Intersection Observers to achieve the project required dynamics
 - README.md	has a brief description of the project
 
 ## Description
