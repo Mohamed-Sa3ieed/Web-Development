@@ -2,7 +2,11 @@
 
 ## Table of Contents
 
-* [Repository Content](#repository Content)
+* [Repository Content](#repository_content)
+* [Description](#description)
+* [Prerequisite](#prerequisite)
+* [Installation](#installation)
+* [Runtime Environment](#runtime_environment)
 
 ## Repository Content
 
@@ -28,8 +32,9 @@ which represents a basic landing page layout, but this version includes the foll
 There is no prerequesite needed at all except to have a working browser, so once you downloaded the folder you can take alook of it in action by clicking on index.html page.
 
 ## Installation
-The project can be considered as a frontend template, so there is no installations for libraries, backend engines or even a server setup (like tomcat).
-Just download change the sections data to meet your need and it will adapt the navigation bar accordingly "as long as you keeping the same HTML structure".
+The project can be considered as a frontend template, so there is no installations for libraries, backend engines or even a server setup (like tomcat).(space)
+Just download the folder, and change the sections data to meet your need.
+The template will adapt the navigation bar accordingly "as long as you keeping the same HTML structure".
 
 ## Runtime Environment
 The project is a frontend webpage so it can work on any operating system, and it has been tested on two browsers (Chrome, Fire Fox) whith no compitability issues.
