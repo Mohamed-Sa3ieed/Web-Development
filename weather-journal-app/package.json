@@ -1,0 +1,31 @@
+{
+  "name": "weather-journal-app",
+  "version": "1.0.0",
+  "description": "A simple project to test Asynchronous API calls",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohamed-Sa3ieed/Web-Development.git"
+  },
+  "keywords": [
+    "#Asynch",
+    "#WebAPI",
+    "#JavaScript",
+    "#nodeJS"
+  ],
+  "author": "Mohamed Said",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohamed-Sa3ieed/Web-Development/issues"
+  },
+  "homepage": "https://github.com/Mohamed-Sa3ieed/Web-Development#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
