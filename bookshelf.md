@@ -1,8 +1,44 @@
-BookShelf
----------
+# BookShelf
+This project is a virtual bookshelf for udacity.Students are able to add their books to the bookshelf, give them a rating, update the rating and search through their book lists. It's based on concept of interaction between the front end (which is react), and the back end (which is flask) using only APIs. 
+
+The backend code follows [PEP8 style guidelines](https://www.python.org/dev/peps/pep-0008/)
+
+## Getting Started
+### Pre-requisites and Local Development
+Developers using this project should already have Python3, pip and node installed on thier local machines.
+#### Backend
+From the backend folder run `pip install requirements.txt`. All required packages are included in the requirements file.  
+
+To run the application on linux run the following commands after navigating to the backend file:
+```
+export Flask_App=flaskr
+export FLASK_ENV=development    //only if you are not in production environment
+flask run
+```
+These commands put the application in the development and directs our application to use the `__init__.py` file in our flaskr folder. Working in development mode shows an interactive debugger in the [Flask documentation](https://flask.palletsprojects.com/en/master/debugging/).  
+
+The application is run on `http://127.0.0.1:5000/` by default and is a proxy in the frontend configuration.
+
+#### Frontend
+From the frontend folder, run the following commands to start the client.
+```
+npm install //only at the first time to install dependencies
+npm start
+```
+By default, the frontend will run on `localhost:3000`.
+
+### Tests
+In order to run tests navigate to the backend folder and run the following commands:
+```
+dropdb bookshelf_test //omit this command if you are testing it for the first time
+createdb bookshelf_test
+psql bookshelf_test < books.psql
+python API_test.py
+```
+For the first time you run the tests, omit the dropdb command.
+All tests are kept in that file and should be maintained as updates are made to app functionality.
 
 ## API reference
-
 ### Getting Started
 - Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend ishosted at the default,
 `http://127.0.0.1:5000/`, which is set as a proxy in the frontend configuration.
@@ -171,3 +207,8 @@ The API will return three error types when requests fail
   "success": true
 }
 ```
+# Deployment N/A
+# Authors
+Yours truly Mohamed Saeed, Caryn
+# Acknowledgements
+The awsome team at Udacity.
