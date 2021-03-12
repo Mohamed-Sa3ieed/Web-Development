@@ -278,6 +278,6 @@ The API will return one of the following error types when requests fail
 ```
 # Deployment N/A
 # Authors
-Yours truly Mohamed Saeed, Caryn
+Yours truly Mohamed Saeed.
 # Acknowledgements
 The awsome team at Udacity.
