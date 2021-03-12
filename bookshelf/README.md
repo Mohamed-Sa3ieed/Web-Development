@@ -126,7 +126,7 @@ The API will return three error types when requests fail
 #### POST /books
 * **General:**
     * Creates a new book using the submitted title, author and rating. Returns the id of the created book, success value, total books, and book list based on current page number to update the frontend.
-* `curl http://127.0.0.1:5000/books?page=3 -X POST -H "Content-Type: application/json" -d '{"title":"Neverwhere", "author":"Neil Gaiman", "rating":"5"}'`
+* **Sample:** `curl http://127.0.0.1:5000/books?page=3 -X POST -H "Content-Type: application/json" -d '{"title":"Neverwhere", "author":"Neil Gaiman", "rating":"5"}'`
 ```
 {
 "books": [
@@ -145,7 +145,7 @@ The API will return three error types when requests fail
 #### DELETE /books/{book_id}
 * **General:**
     * Deletes the book of the given ID if it exists. Returns the id of the deleted book, success value, total books, and book list based on current page number to update the frontend.
-* `curl -X DELETE http://127.0.0.1:5000/books/16?page=2`
+* **Sample:** `curl -X DELETE http://127.0.0.1:5000/books/16?page=2`
 ```
 {
 "books": [
@@ -200,7 +200,7 @@ The API will return three error types when requests fail
 #### PATCH /books/{book_id}
 * **General:**
     * If provided, updates the rating of the specified book. Returns the success value and id of the modified book.
-* `curl http://127.0.0.1:5000/books/15 -X PATCH -H "Content-Type: application/json" -d '{"rating":"1"}'`
+* **Sample:** `curl http://127.0.0.1:5000/books/15 -X PATCH -H "Content-Type: application/json" -d '{"rating":"1"}'`
 ``` 
 { 
   "id": 15,
