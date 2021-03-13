@@ -14,15 +14,17 @@ class TriviaTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "trivia_test"
-        self.database_path = "postgresql://{}:{}@{}/{}".format(
-            'postgres', 'Joker2016', 'localhost:5432', self.database_name)
-        setup_db(self.app, self.database_path)
+        self.DB_HOST = os.getenv('DB_HOST')  
+        self.DB_USER = os.getenv('DB_USER', 'postgres')  
+        self.DB_PASSWORD = os.getenv('DB_PASSWORD', 'postgres')  
+        self.DB_NAME = os.getenv('DB_TEST_NAME', 'trivia_test')  
+        self.DB_PATH = 'postgresql+psycopg2://{}:{}@{}/{}'.format(self.DB_USER, self.DB_PASSWORD, self.DB_HOST, self.DB_NAME)
+        setup_db(self.app, self.DB_PATH)
 
         # Add dummy question for insertion
         self.new_question = {
             'question': 'what is the current year?',
-            'answer': 2020,
+            'answer': 2021,
             'difficulty': 1,
             'category': 4
         }

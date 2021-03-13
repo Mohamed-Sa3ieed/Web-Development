@@ -12,11 +12,13 @@ QUESTIONS_PER_PAGE = 10
 
 def paginate_questions(request, selection):
     page = request.args.get('page', 1, type=int)
-    start = (page-1)*QUESTIONS_PER_PAGE
-    end = start + QUESTIONS_PER_PAGE
-
-    questions = [question.format() for question in selection]
-    current_questions = questions[start:end]
+    current_index = page - 1
+    items_limit = request.args.get('limit', QUESTIONS_PER_PAGE, type=int)
+    #start = (page-1)*QUESTIONS_PER_PAGE
+    #end = start + QUESTIONS_PER_PAGE
+    paged_Selection = selection.limit(items_limit).offset(current_index * items_limit).all()
+    current_questions = [question.format() for question in paged_Selection]
+    # current_questions = questions[start:end]
 
     return current_questions
 
@@ -69,7 +71,7 @@ def create_app(test_config=None):
     @app.route('/questions', methods=['GET'])
     def get_paginated_questions():
 
-        selection = Question.query.order_by(Question.id).all()
+        selection = Question.query.order_by(Question.id)
         categories_collection = Category.query.order_by(Category.id).all()
         categories = {
             category.id: category.type for category in categories_collection
@@ -83,7 +85,7 @@ def create_app(test_config=None):
             'questions': current_questions,
             'categories': categories,
             'currentCategory': currentCategory,
-            'total_questions': len(selection)
+            'total_questions': len(selection.all())
         })
 
     '''
@@ -131,12 +133,12 @@ def create_app(test_config=None):
         try:
             if searchTerm:
                 selection = Question.query.filter(
-                    Question.question.ilike('%{}%'.format(searchTerm))).all()
+                    Question.question.ilike('%{}%'.format(searchTerm))).order_by(Question.id)
                 current_questions = paginate_questions(request, selection)
                 return jsonify({
                     'success': True,
                     'questions': current_questions,
-                    'totalQuestions': len(selection),
+                    'totalQuestions': len(selection.all()),
                     'currentCategory': currentCategory
                 })
             else:
